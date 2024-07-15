@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timbre Space</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="Mediapipe.css">
+</head>
+<body>
+  <div class="container">
+    <div class="holistic-container">
+      <article class="panel is-info">
+        <p class="panel-heading">Holistic Detection</p>
+        <div class="panel-block">
+          <canvas id="canvas" width="1280" height="720"></canvas>
+        </div>
+      </article>
+    </div>
+    <div class="controls-container">
+      <h2 class="title">Control Panel</h2>
+      <div>
+        <button class="button is-primary control-button" id="startButton">Start Playing</button>
+        <div class="configuration-buttons">
+          <button class="button is-link control-button" id="loadButton">Load Configuration</button>
+          <button class="button is-success control-button" id="saveButton">Save Configuration</button>
+        </div>
+        <div id="statusMessage" class="notification is-light" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+  <script defer src="Mediapipe.js"></script>
+</body>
+</html>
