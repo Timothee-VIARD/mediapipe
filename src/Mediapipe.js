@@ -16,9 +16,9 @@ let BOXES = [
     width: 150,
     height: 150,
     color: "yellow",
-    sound: "/public/SoundsWav/hihat.wav",
+    sound: "/SoundsWav/hihat.wav",
     lastTrigger: 0,
-    img: "/public/Images/hihat.svg",
+    img: "/Images/hihat.svg",
   },
   {
     x: 300,
@@ -26,9 +26,9 @@ let BOXES = [
     width: 150,
     height: 150,
     color: "green",
-    sound: "/public/SoundsWav/cymbal.wav",
+    sound: "/SoundsWav/cymbal.wav",
     lastTrigger: 0,
-    img: "/public/Images/cymbals.svg",
+    img: "/Images/cymbals.svg",
   },
   {
     x: 100,
@@ -36,9 +36,9 @@ let BOXES = [
     width: 150,
     height: 150,
     color: "blue",
-    sound: "/public/SoundsWav/snare.wav",
+    sound: "/SoundsWav/snare.wav",
     lastTrigger: 0,
-    img: "/public/Images/snare.svg",
+    img: "/Images/snare.svg",
   },
   {
     x: 300,
@@ -46,9 +46,9 @@ let BOXES = [
     width: 150,
     height: 150,
     color: "purple",
-    sound: "/public/SoundsWav/kick.wav",
+    sound: "/SoundsWav/kick.wav",
     lastTrigger: 0,
-    img: "/public/Images/kick.svg",
+    img: "/Images/kick.svg",
   },
 ];
 

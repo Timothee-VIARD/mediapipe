@@ -1,9 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0;url=/src/mediapipe.html" />
+    <link href="main.css" rel="stylesheet" />
   </head>
-  <body></body>
+  <body>
+    <div class="w-full h-screen flex justify-center items-center">
+      <div
+        class="p-5 flex justify-center items-center flex-col gap-7 border-gray-200 border rounded-2xl shadow-md"
+      >
+        <div>
+          <h1 class="text-3xl font-bold">Mediapipe menu</h1>
+        </div>
+        <div class="flex flex-col gap-4 w-full items-center">
+          <button
+            id="mediapipeButton"
+            class="p-[2px] w-3/4 flex justify-center border-gray-400 border rounded-3xl transition-all duration-100 hover:scale-105 hover:shadow-md hover:bg-blue-400 hover:text-white"
+          >
+            Mediapipe
+          </button>
+          <button
+            class="p-[2px] w-3/4 flex justify-center border-gray-400 border rounded-3xl transition-all duration-100 hover:scale-105 hover:shadow-md hover:bg-blue-400 hover:text-white"
+          >
+            Server configuration
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script defer src="main.js"></script>
 </html>
