@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebRTC Demo</title>
-  </head>
-  <body>
-    <h2>1. Start your Webcam</h2>
-    <div class="videos">
-      <span>
-        <h3>Local Stream</h3>
-        <video id="webcamVideo" autoplay playsinline></video>
-      </span>
-      <span>
-        <h3>Remote Stream</h3>
-        <video id="remoteVideo" autoplay playsinline></video>
-      </span>
 
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../../main.css" rel="stylesheet" />
+  <title>WebRTC Audio Demo</title>
+</head>
 
+<body class="w-full flex flex-col items-center gap-10 pt-10">
+
+  <div class="flex flex-col items-center gap-2">
+    <h2 class="text-2xl font-bold">Create a new Call</h2>
+    <button id="callButton" class="btn-primary w-auto">Create a new offer</button>
+  </div>
+
+  <div class="flex flex-col items-center gap-2">
+    <h2 class="text-2xl font-bold">Join a Call</h2>
+    <p>Pass the generated key into the field below, to answer a call</p>
+    <div class="flex flex-row gap-5">
+      <input id="callInput" placeholder="Enter call ID" class="input w-auto" />
+      <button id="answerButton" class="btn-primary">Answer</button>
     </div>
+  </div>
 
-    <button id="webcamButton">Start webcam</button>
-    <h2>2. Create a new Call</h2>
-    <button id="callButton" disabled>Create Call (offer)</button>
+  <div class="flex flex-col items-center gap-2">
+    <h2>Play Sound</h2>
+    <button id="playSoundButton" disabled class="btn-primary w-auto">Play Sound</button>
+  </div>
 
-    <h2>3. Join a Call</h2>
-    <p>Answer the call from a different browser window or device</p>
-    
-    <input id="callInput" />
-    <button id="answerButton" disabled>Answer</button>
+  <div class="flex flex-col items-center gap-2">
+    <h2>Hangup</h2>
+    <button id="hangupButton" disabled class="btn-cancel w-auto">Hangup</button>
+  </div>
 
-    <h2>4. Hangup</h2>
+  <button  id="exitButton" class="btn-cancel w-auto">Back to the menu</button>
 
-    <button id="hangupButton" disabled>Hangup</button>
+  <audio id="audio" autoplay></audio>
+  <script type="module" src="./webRTC.js"></script>
+</body>
 
-    <script type="module" src="./webRTC.js"></script>
-
-  </body>
 </html>

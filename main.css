@@ -3,10 +3,25 @@
 @tailwind utilities;
 
 @layer components {
+  h1{
+    @apply text-4xl font-bold;
+  }
+  h2{
+    @apply text-2xl font-bold;
+  }
   .btn-primary {
-    @apply bg-blue-400 text-white py-2 px-4 rounded w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
+    @apply bg-blue-400 text-white py-2 px-4 rounded-lg w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
+  }
+  .btn-primary:disabled {
+    @apply bg-blue-200 text-gray-400 cursor-not-allowed;
   }
   .btn-cancel {
-    @apply bg-red-500 text-white py-2 px-4 rounded w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
+    @apply bg-red-500 text-white py-2 px-4 rounded-lg w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
+  }
+  .btn-cancel:disabled {
+    @apply bg-red-300 text-gray-400 cursor-not-allowed;
+  }
+  .input {
+    @apply bg-gray-50 border border-gray-300 text-sm rounded-lg px-4 py-2;
   }
 }

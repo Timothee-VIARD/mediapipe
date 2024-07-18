@@ -18,23 +18,23 @@
   <div class="flex max-w-full gap-8 my-10 mx-10">
     <div class="w-3/4 flex flex-col items-center">
       <article class="w-full h-full text-center p-4 rounded-lg shadow-md border-gray-200 border">
-        <p class="text-2xl font-bold">Holistic Detection</p>
-        <div class="mt-4">
-          <canvas id="canvas" width="1280" height="720" class="w-full h-auto rounded-lg"></canvas>
-        </div>
+        <h2>Holistic Detection</p>
+          <div class="mt-4">
+            <canvas id="canvas" width="1280" height="720" class="w-full h-auto rounded-lg"></canvas>
+          </div>
       </article>
     </div>
     <div class="w-1/4 flex flex-col p-5 rounded-lg shadow-md border-gray-200 border justify-between">
       <div class="flex flex-col">
-        <h2 class="text-2xl font-bold mb-5">Control Panel</h2>
+        <h2 class="mb-5">Control Panel</h2>
         <div class="flex flex-col gap-5">
           <button class="btn-primary" id="startButton">Start Playing</button>
           <div class="flex gap-5">
             <button class="btn-primary" id="loadButton">Load Configuration</button>
             <button class="btn-primary" id="saveButton">Save Configuration</button>
           </div>
-          <button class="btn-cancel" id="cancelButton">Stop</button>
           <div id="statusMessage" class="hidden bg-gray-100 p-4 rounded-lg"></div>
+          <button class="btn-cancel" id="cancelButton">Stop</button>
         </div>
       </div>
       <button class="btn-cancel" id="exitButton">Back to the menu</button>

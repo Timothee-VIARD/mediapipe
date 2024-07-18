@@ -240,10 +240,8 @@ function drawLandmarks(results) {
 function drawBoxes() {
   BOXES.forEach((box) => {
     if (box.ready) {
-      // Vérifier si l'image est prête
       canvasCtx.drawImage(box.img, box.x, box.y, box.width, box.height);
     } else {
-      // Optionnel : Dessiner un placeholder ou rien si l'image n'est pas prête
       canvasCtx.fillStyle = box.color;
       canvasCtx.fillRect(box.x, box.y, box.width, box.height);
     }
