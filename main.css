@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-400 text-white py-2 px-4 rounded w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
+  }
+  .btn-cancel {
+    @apply bg-red-500 text-white py-2 px-4 rounded w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
+  }
+}

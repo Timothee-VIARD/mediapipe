@@ -5,6 +5,16 @@ const startButton = document.getElementById("startButton");
 const saveButton = document.getElementById("saveButton");
 const loadButton = document.getElementById("loadButton");
 const statusMessage = document.getElementById("statusMessage");
+const exitButton = document.querySelector("#exitButton");
+const cancelButton = document.querySelector("#cancelButton");
+
+exitButton.addEventListener("click", () => {
+  location.href = "/";
+});
+
+cancelButton.addEventListener("click", () => {
+  location.reload();
+});
 
 let isConfigMode = false;
 
