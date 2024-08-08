@@ -25,20 +25,33 @@
     </div>
   </div>
 
-  <div class="flex flex-col items-center gap-2">
+  <div id="playSound" class="flex flex-col items-center gap-2">
     <h2>Play Sound</h2>
-    <button id="playSoundButton" disabled class="btn-primary w-auto">Play Sound</button>
+    <div class="flex gap-2">
+      <button id="playSoundHithat" class="btn-primary w-auto">Hithat</button>
+      <button id="playSoundBasshit" class="btn-primary w-auto">Bass hit</button>
+      <button id="playSoundCymbal" class="btn-primary w-auto">Cymbal</button>
+      <button id="playSoundKick" class="btn-primary w-auto">Kick</button>
+      <button id="playSoundShortbasshit" class="btn-primary w-auto">Shortbasshit</button>
+      <button id="playSoundSnare" class="btn-primary w-auto">Snare</button>
+    </div>
   </div>
 
-  <div class="flex flex-col items-center gap-2">
+  <div id="hangup" class="flex flex-col items-center gap-2">
     <h2>Hangup</h2>
-    <button id="hangupButton" disabled class="btn-cancel w-auto">Hangup</button>
+    <button id="hangupButton" class="btn-cancel w-auto">Hangup</button>
   </div>
 
-  <button  id="exitButton" class="btn-cancel w-auto">Back to the menu</button>
+  <button id="exitButton" class="btn-cancel w-auto">Back to the menu</button>
 
   <audio id="audio" autoplay></audio>
   <script type="module" src="./webRTC.js"></script>
+  <style>
+    #hangup,
+    #playSound {
+      display: none;
+    }
+  </style>
 </body>
 
 </html>

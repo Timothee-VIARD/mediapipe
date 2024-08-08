@@ -36,9 +36,17 @@ const callButton = document.getElementById("callButton");
 const callInput = document.getElementById("callInput");
 const answerButton = document.getElementById("answerButton");
 const hangupButton = document.getElementById("hangupButton");
-const playSoundButton = document.getElementById("playSoundButton");
 const remoteAudio = document.getElementById("audio");
 const exitButton = document.getElementById("exitButton");
+const hangupDiv = document.getElementById("hangup");
+const playSoundDiv = document.getElementById("playSound");
+
+const playSoundHithat = document.getElementById("playSoundHithat");
+const playSoundBasshit = document.getElementById("playSoundBasshit");
+const playSoundCymbal = document.getElementById("playSoundCymbal");
+const playSoundKick = document.getElementById("playSoundKick");
+const playSoundShortbasshit = document.getElementById("playSoundShortbasshit");
+const playSoundSnare = document.getElementById("playSoundSnare");
 
 exitButton.addEventListener("click", () => {
   location.href = "/";
@@ -115,8 +123,6 @@ callButton.onclick = async () => {
       });
     });
 
-    hangupButton.disabled = false;
-    playSoundButton.disabled = false;
   } catch (error) {
     console.error("Error when creating an offer.", error);
   }
@@ -172,23 +178,9 @@ hangupButton.onclick = () => {
   pc.close();
   callButton.disabled = false;
   answerButton.disabled = false;
-  hangupButton.disabled = true;
-  playSoundButton.disabled = true;
+  hangupDiv.style.display = 'none';
+  playSoundDiv.style.display = 'none';
   callInput.value = "";
-};
-
-playSoundButton.onclick = async () => {
-  try {
-    const audioUrl = "/SoundsWav/snare.wav";
-
-    await addAudioSource(audioUrl);
-
-    console.log(
-      "Audio played."
-    );
-  } catch (error) {
-    console.error("Audio playback error", error);
-  }
 };
 
 pc.oniceconnectionstatechange = () => {
@@ -201,7 +193,13 @@ pc.oniceconnectionstatechange = () => {
 pc.onconnectionstatechange = () => {
   console.log("Connection state changed: ", pc.connectionState);
   if (pc.connectionState === "connected") {
+    hangupDiv.style.display = 'flex';
+    playSoundDiv.style.display = 'flex';
     console.log("Peers connected!");
+  } else if (pc.connectionState === "disconnected") {
+    hangupDiv.style.display = 'none';
+    playSoundDiv.style.display = 'none';
+    console.log("Peers disconnected!");
   }
 };
 
@@ -210,4 +208,53 @@ pc.ontrack = (event) => {
     remoteStream.addTrack(track);
   });
   remoteAudio.srcObject = remoteStream;
+};
+
+playSoundShortbasshit.onclick = async () => {
+  try {
+    const audioUrl = "/SoundsWav/shortbasshit.wav";
+    await addAudioSource(audioUrl);
+  } catch (error) {
+    console.error("Audio playback error", error);
+  }
+};
+playSoundCymbal.onclick = async () => {
+  try {
+    const audioUrl = "/SoundsWav/cymbal.wav";
+    await addAudioSource(audioUrl);
+  } catch (error) {
+    console.error("Audio playback error", error);
+  }
+};
+playSoundBasshit.onclick = async () => {
+  try {
+    const audioUrl = "/SoundsWav/shortbasshit2.wav";
+    await addAudioSource(audioUrl);
+  } catch (error) {
+    console.error("Audio playback error", error);
+  }
+};
+playSoundHithat.onclick = async () => {
+  try {
+    const audioUrl = "/SoundsWav/hihat.wav";
+    await addAudioSource(audioUrl);
+  } catch (error) {
+    console.error("Audio playback error", error);
+  }
+};
+playSoundKick.onclick = async () => {
+  try {
+    const audioUrl = "/SoundsWav/kick.wav";
+    await addAudioSource(audioUrl);
+  } catch (error) {
+    console.error("Audio playback error", error);
+  }
+};
+playSoundSnare.onclick = async () => {
+  try {
+    const audioUrl = "/SoundsWav/snare.wav";
+    await addAudioSource(audioUrl);
+  } catch (error) {
+    console.error("Audio playback error", error);
+  }
 };
