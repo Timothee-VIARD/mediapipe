@@ -15,22 +15,22 @@ const playSoundShortbasshit = document.getElementById("playSoundShortbasshit");
 const playSoundSnare = document.getElementById("playSoundSnare");
 
 exitButton.addEventListener("click", () => {
-  location.href = "/";
+    location.href = "/";
 });
 
 export {
-  callButton,
-  callInput,
-  answerButton,
-  hangupButton,
-  remoteAudio,
-  exitButton,
-  hangupDiv,
-  playSoundDiv,
-  playSoundHithat,
-  playSoundBasshit,
-  playSoundCymbal,
-  playSoundKick,
-  playSoundShortbasshit,
-  playSoundSnare,
+    callButton,
+    callInput,
+    answerButton,
+    hangupButton,
+    remoteAudio,
+    exitButton,
+    hangupDiv,
+    playSoundDiv,
+    playSoundHithat,
+    playSoundBasshit,
+    playSoundCymbal,
+    playSoundKick,
+    playSoundShortbasshit,
+    playSoundSnare,
 };

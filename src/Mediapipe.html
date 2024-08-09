@@ -3,25 +3,28 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Timbre Space</title>
-  <link href="../main.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.css"
-    crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js" crossorigin="anonymous"></script>
+  <link href="../main.css" rel="stylesheet"/>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.css"
+        rel="stylesheet"
+        type="text/css">
+  <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script crossorigin="anonymous"
+          src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"></script>
+  <script crossorigin="anonymous"
+          src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js"></script>
 </head>
 
 <body class="m-0 overflow-hidden">
   <div class="flex max-w-full gap-8 my-10 mx-10">
     <div class="w-3/4 flex flex-col items-center">
       <article class="w-full h-full text-center p-4 rounded-lg shadow-md border-gray-200 border">
-        <h2>Holistic Detection</p>
-          <div class="mt-4">
-            <canvas id="canvas" width="1280" height="720" class="w-full h-auto rounded-lg"></canvas>
-          </div>
+        <h2>Holistic Detection</h2>
+        <div class="mt-4">
+          <canvas class="w-full h-auto rounded-lg" height="720" id="canvas" width="1280"></canvas>
+        </div>
       </article>
     </div>
     <div class="w-1/4 flex flex-col p-5 rounded-lg shadow-md border-gray-200 border justify-between">
@@ -33,7 +36,7 @@
             <button class="btn-primary" id="loadButton">Load Configuration</button>
             <button class="btn-primary" id="saveButton">Save Configuration</button>
           </div>
-          <div id="statusMessage" class="hidden bg-gray-100 p-4 rounded-lg"></div>
+          <div class="hidden bg-gray-100 p-4 rounded-lg" id="statusMessage"></div>
           <button class="btn-cancel" id="cancelButton">Stop</button>
         </div>
       </div>

@@ -2,10 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="../../main.css" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="../../main.css" rel="stylesheet"/>
+  <style>
+    #hangup,
+    #playSound {
+      display: none;
+    }
+  </style>
   <title>WebRTC Audio Demo</title>
 </head>
 
@@ -13,45 +19,39 @@
 
   <div class="flex flex-col items-center gap-2">
     <h2 class="text-2xl font-bold">Create a new Call</h2>
-    <button id="callButton" class="btn-primary w-auto">Create a new offer</button>
+    <button class="btn-primary w-auto" id="callButton">Create a new offer</button>
   </div>
 
   <div class="flex flex-col items-center gap-2">
     <h2 class="text-2xl font-bold">Join a Call</h2>
     <p>Pass the generated key into the field below, to answer a call</p>
     <div class="flex flex-row gap-5">
-      <input id="callInput" placeholder="Enter call ID" class="input w-auto" />
-      <button id="answerButton" class="btn-primary">Answer</button>
+      <input class="input w-auto" id="callInput" placeholder="Enter call ID"/>
+      <button class="btn-primary" id="answerButton">Answer</button>
     </div>
   </div>
 
-  <div id="playSound" class="flex flex-col items-center gap-2">
+  <div class="flex flex-col items-center gap-2" id="playSound">
     <h2>Play Sound</h2>
     <div class="flex gap-2">
-      <button id="playSoundHithat" class="btn-primary w-auto">Hithat</button>
-      <button id="playSoundBasshit" class="btn-primary w-auto">Bass hit</button>
-      <button id="playSoundCymbal" class="btn-primary w-auto">Cymbal</button>
-      <button id="playSoundKick" class="btn-primary w-auto">Kick</button>
-      <button id="playSoundShortbasshit" class="btn-primary w-auto">Shortbasshit</button>
-      <button id="playSoundSnare" class="btn-primary w-auto">Snare</button>
+      <button class="btn-primary w-auto" id="playSoundHithat">Hithat</button>
+      <button class="btn-primary w-auto" id="playSoundBasshit">Bass hit</button>
+      <button class="btn-primary w-auto" id="playSoundCymbal">Cymbal</button>
+      <button class="btn-primary w-auto" id="playSoundKick">Kick</button>
+      <button class="btn-primary w-auto" id="playSoundShortbasshit">Shortbasshit</button>
+      <button class="btn-primary w-auto" id="playSoundSnare">Snare</button>
     </div>
   </div>
 
-  <div id="hangup" class="flex flex-col items-center gap-2">
+  <div class="flex flex-col items-center gap-2" id="hangup">
     <h2>Hangup</h2>
-    <button id="hangupButton" class="btn-cancel w-auto">Hangup</button>
+    <button class="btn-cancel w-auto" id="hangupButton">Hangup</button>
   </div>
 
-  <button id="exitButton" class="btn-cancel w-auto">Back to the menu</button>
+  <button class="btn-cancel w-auto" id="exitButton">Back to the menu</button>
 
-  <audio id="audio" autoplay></audio>
-  <script type="module" src="./main.js"></script>
-  <style>
-    #hangup,
-    #playSound {
-      display: none;
-    }
-  </style>
+  <audio autoplay id="audio"></audio>
+  <script src="./webRTC.js" type="module"></script>
 </body>
 
 </html>
