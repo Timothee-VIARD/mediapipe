@@ -6,12 +6,6 @@
   <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <link href="../../main.css" rel="stylesheet"/>
-  <style>
-    #hangup,
-    #playSound {
-      display: none;
-    }
-  </style>
   <title>WebRTC Audio Demo</title>
 </head>
 
@@ -31,7 +25,7 @@
     </div>
   </div>
 
-  <div class="flex flex-col items-center gap-2" id="playSound">
+  <div class="flex flex-col items-center gap-2" id="playSound" style="display: none">
     <h2>Play Sound</h2>
     <div class="flex gap-2">
       <button class="btn-primary w-auto" id="playSoundHithat">Hithat</button>
@@ -43,7 +37,7 @@
     </div>
   </div>
 
-  <div class="flex flex-col items-center gap-2" id="hangup">
+  <div class="flex flex-col items-center gap-2" id="hangup" style="display: none">
     <h2>Hangup</h2>
     <button class="btn-cancel w-auto" id="hangupButton">Hangup</button>
   </div>
