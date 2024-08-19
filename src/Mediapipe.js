@@ -8,15 +8,10 @@ const statusMessage = document.getElementById("statusMessage");
 const exitButton = document.querySelector("#exitButton");
 const cancelButton = document.querySelector("#cancelButton");
 
-exitButton.addEventListener("click", () => {
-    location.href = "/";
-});
-
-cancelButton.addEventListener("click", () => {
-    location.reload();
-});
-
 let isConfigMode = false;
+let cameraRunning = false;
+let holistic = null;
+let camera = null;
 
 // Fixed box positions
 let BOXES = [
@@ -73,41 +68,123 @@ BOXES.forEach((box) => {
 
 const COOLDOWN = 1000; // 1 second cooldown
 
-// Initialize Mediapipe Holistic
-const holistic = new Holistic({
-    locateFile: (file) => {
-        return `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`;
-    },
-});
+async function initializeHolistic() {
+    if (holistic) {
+        await holistic.close();
+    }
+    holistic = new Holistic({
+        locateFile: (file) => {
+            return `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`;
+        },
+    });
 
-holistic.setOptions({
-    modelComplexity: 1,
-    smoothLandmarks: true,
-    enableSegmentation: false,
-    refineFaceLandmarks: true,
-    minDetectionConfidence: 0.5,
-    minTrackingConfidence: 0.5,
-});
+    await holistic.initialize();
 
-holistic.onResults(onResults);
+    holistic.setOptions({
+        modelComplexity: 1,
+        smoothLandmarks: true,
+        enableSegmentation: false,
+        refineFaceLandmarks: true,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5,
+    });
 
-startButton.addEventListener("click", () => {
+    holistic.onResults(onResults);
+}
+
+async function initializeCamera() {
+    if (camera) {
+        await camera.stop();
+    }
+    camera = new Camera(videoElement, {
+        onFrame: async () => {
+            if (holistic) {
+                await holistic.send({image: videoElement});
+            }
+        },
+        width: 1280,
+        height: 720,
+    });
+}
+
+async function startApp() {
+    if (cameraRunning) {
+        console.warn("Application is already running.");
+        return;
+    }
+
+    try {
+        await initializeHolistic();
+        await initializeCamera();
+        await camera.start();
+        cameraRunning = true;
+        cancelButton.hidden = false;
+    } catch (error) {
+        console.error("Error starting application:", error);
+        throw error;
+    }
+}
+
+async function stopApp() {
+    if (cameraRunning) {
+        try {
+            if (camera) {
+                await camera.stop();
+                camera = null;
+            }
+        } catch (error) {
+            console.error("Error stopping camera:", error);
+        }
+
+        try {
+            if (holistic) {
+                await holistic.close();
+                holistic = null;
+            }
+        } catch (error) {
+            console.error("Error closing holistic:", error);
+        }
+
+        cameraRunning = false;
+    }
+}
+
+initializeHolistic();
+initializeCamera();
+
+startButton.addEventListener("click", async () => {
     startButton.disabled = true;
     loadButton.disabled = true;
     saveButton.disabled = true;
     statusMessage.style.display = "none";
-    camera.start();
-    isConfigMode = false;
+
+    try {
+        await startApp();
+        isConfigMode = false;
+    } catch (error) {
+        console.error("Error starting application:", error);
+        startButton.disabled = false;
+        loadButton.disabled = false;
+        statusMessage.textContent = "Failed to start application. Please try again.";
+        statusMessage.style.display = "block";
+    }
 });
 
-loadButton.addEventListener("click", () => {
+loadButton.addEventListener("click", async () => {
     statusMessage.style.display = "block";
     statusMessage.textContent =
         "Configuration mode: Use hand gestures to move the boxes.";
     isConfigMode = true;
     startButton.disabled = true;
     saveButton.disabled = false;
-    camera.start();
+
+    try {
+        await startApp();
+    } catch (error) {
+        console.error("Error starting application:", error);
+        loadButton.disabled = false;
+        statusMessage.textContent = "Failed to start application. Please try again.";
+    }
 });
 
 saveButton.addEventListener("click", () => {
@@ -118,14 +195,6 @@ saveButton.addEventListener("click", () => {
     loadButton.disabled = false;
     saveButton.disabled = true;
     isConfigMode = false;
-});
-
-const camera = new Camera(videoElement, {
-    onFrame: async () => {
-        await holistic.send({image: videoElement});
-    },
-    width: 1280,
-    height: 720,
 });
 
 function onResults(results) {
@@ -296,3 +365,28 @@ function playSound(sound) {
     const audio = new Audio(sound);
     audio.play();
 }
+
+function clearCanvas() {
+    canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    canvasCtx.fillStyle = "white";
+    canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+}
+
+cancelButton.addEventListener("click", async () => {
+    await stopApp();
+    clearCanvas();
+
+    startButton.disabled = false;
+    loadButton.disabled = false;
+    saveButton.disabled = true;
+    statusMessage.style.display = "none";
+    cancelButton.hidden = true;
+});
+
+exitButton.addEventListener("click", () => {
+    location.href = "/";
+});
+
+window.addEventListener('beforeunload', async () => {
+    await stopApp();
+});

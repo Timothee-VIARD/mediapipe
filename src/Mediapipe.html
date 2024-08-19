@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Timbre Space</title>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet"/>
   <link href="../main.css" rel="stylesheet"/>
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.css"
         rel="stylesheet"
@@ -27,23 +28,52 @@
         </div>
       </article>
     </div>
+
     <div class="w-1/4 flex flex-col p-5 rounded-lg shadow-md border-gray-200 border justify-between">
-      <div class="flex flex-col">
-        <h2 class="mb-5">Control Panel</h2>
-        <div class="flex flex-col gap-5">
-          <button class="btn-primary" id="startButton">Start Playing</button>
-          <div class="flex gap-5">
-            <button class="btn-primary" id="loadButton">Load Configuration</button>
-            <button class="btn-primary" id="saveButton">Save Configuration</button>
+      <div class="flex flex-col gap-4">
+
+        <h2>Control Panel</h2>
+
+        <button class="btn-primary" id="startButton">Start Playing</button>
+        <button class="btn-cancel" id="cancelButton" hidden>Stop</button>
+
+        <div class="flex flex-col gap-2">
+          <h3>Configuration</h3>
+          <div class="flex gap-2">
+            <button class="btn-primary" id="loadButton">Modify</button>
+            <button class="btn-primary" id="saveButton">Save</button>
           </div>
           <div class="hidden bg-gray-100 p-4 rounded-lg" id="statusMessage"></div>
-          <button class="btn-cancel" id="cancelButton">Stop</button>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h3>WebRTC connection</h3>
+          <div class="flex flex-col gap-2">
+            <button class="btn-primary w-full" id="callButton">Create a new offer</button>
+
+            <div>
+              <div class="flex flex-row gap-2">
+                <input data-tooltip-target="tooltip-default" class="input w-auto" id="callInput"
+                       placeholder="Enter call ID"/>
+                <button class="btn-primary" id="answerButton">Answer</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
       <button class="btn-cancel" id="exitButton">Back to the menu</button>
     </div>
   </div>
-  <script defer src="Mediapipe.js"></script>
+
+  <div id="tooltip-default" role="tooltip"
+       class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    Pass the generated key into the field below, to answer a call
+    <div class="tooltip-arrow" data-popper-arrow></div>
+  </div>
+
+  <script defer src="./Mediapipe.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
 
 </html>

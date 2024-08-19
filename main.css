@@ -9,6 +9,9 @@
   h2{
     @apply text-2xl font-bold;
   }
+  h3{
+    @apply text-xl font-bold;
+  }
   .btn-primary {
     @apply bg-blue-400 text-white py-2 px-4 rounded-lg w-full transition-all duration-100 hover:scale-105 hover:shadow-md;
   }
