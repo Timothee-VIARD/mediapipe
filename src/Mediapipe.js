@@ -1,3 +1,5 @@
+import {playSound} from "./audioPlayback.js";
+
 const videoElement = document.createElement("video"); // Hidden video element
 const canvasElement = document.getElementById("canvas");
 const canvasCtx = canvasElement.getContext("2d");
@@ -359,11 +361,6 @@ function isPointInBox(point, box) {
         point.y >= box.y &&
         point.y <= box.y + box.height
     );
-}
-
-function playSound(sound) {
-    const audio = new Audio(sound);
-    audio.play();
 }
 
 function clearCanvas() {

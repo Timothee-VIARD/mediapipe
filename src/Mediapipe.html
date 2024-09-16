@@ -51,13 +51,13 @@
           <div class="flex flex-col gap-2">
             <button class="btn-primary w-full" id="callButton">Create a new offer</button>
 
-            <div>
               <div class="flex flex-row gap-2">
                 <input data-tooltip-target="tooltip-default" class="input w-auto" id="callInput"
                        placeholder="Enter call ID"/>
                 <button class="btn-primary" id="answerButton">Answer</button>
               </div>
-            </div>
+
+<!--            <button class="btn-cancel w-auto hidden" id="hangupButton">Hangup</button>-->
           </div>
         </div>
       </div>
@@ -71,8 +71,9 @@
     Pass the generated key into the field below, to answer a call
     <div class="tooltip-arrow" data-popper-arrow></div>
   </div>
-
-  <script defer src="./Mediapipe.js"></script>
+  <audio autoplay id="audio"></audio>
+  <script defer src="./Mediapipe.js" type="module"></script>
+  <script defer src="./WebRTCConnexion.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
 
