@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="../../main.css" rel="stylesheet"/>
+  <title>PitchShift</title>
+</head>
+<body class="w-full h-screen flex flex-col justify-center items-center gap-10 pt-10">
+  <div class="p-5 w-1/4 flex justify-center items-center flex-col gap-5 border-gray-200 border rounded-2xl shadow-md">
+    <h1 class="text-2xl font-bold">PitchShift</h1>
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-1">
+        <div class="flex flex-row gap-2">
+          <h5>Pitch: </h5>
+          <span id="pitchValue">0</span>
+        </div>
+        <input type="range" id="pitchSlider" min="-12" max="12" value="0" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+      </div>
+      <div class="flex flex-col gap-1">
+        <div class="flex flex-row gap-2">
+          <h5>Speed: </h5>
+          <span id="speedValue">100%</span>
+        </div>
+        <input type="range" id="speedSlider" min="0.5" max="1.5" value="1" step="0.1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+      </div>
+    </div>
+    <div class="flex flex-row gap-5">
+      <button class="btn-primary" id="play">Play</button>
+      <button class="btn-primary" id="stop">Stop</button>
+    </div>
+    <button class="btn-cancel w-auto" id="exitButton">Back to the menu</button>
+  </div>
+  <script src="./pitchShift.js" type="module"></script>
+</body>
+</html>
