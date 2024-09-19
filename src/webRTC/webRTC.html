@@ -9,40 +9,42 @@
   <title>WebRTC Audio Demo</title>
 </head>
 
-<body class="w-full flex flex-col items-center gap-10 pt-10">
+<body class="w-full h-screen flex flex-col justify-center items-center gap-10 pt-10">
+  <div class="p-5 w-1/2 flex justify-center items-center flex-col gap-10 border-gray-200 border rounded-2xl shadow-md">
 
-  <div class="flex flex-col items-center gap-2">
-    <h2 class="text-2xl font-bold">Create a new Call</h2>
-    <button class="btn-primary w-auto" id="callButton">Create a new offer</button>
-  </div>
-
-  <div class="flex flex-col items-center gap-2">
-    <h2 class="text-2xl font-bold">Join a Call</h2>
-    <p>Pass the generated key into the field below, to answer a call</p>
-    <div class="flex flex-row gap-5">
-      <input class="input w-auto" id="callInput" placeholder="Enter call ID"/>
-      <button class="btn-primary" id="answerButton">Answer</button>
+    <div class="flex flex-col items-center gap-2">
+      <h2 class="text-2xl font-bold">Create a new Call</h2>
+      <button class="btn-primary w-auto" id="callButton">Create a new offer</button>
     </div>
-  </div>
 
-  <div class="flex flex-col items-center gap-2" id="playSound" style="display: none">
-    <h2>Play Sound</h2>
-    <div class="flex gap-2">
-      <button class="btn-primary w-auto" id="playSoundHithat">Hithat</button>
-      <button class="btn-primary w-auto" id="playSoundBasshit">Bass hit</button>
-      <button class="btn-primary w-auto" id="playSoundCymbal">Cymbal</button>
-      <button class="btn-primary w-auto" id="playSoundKick">Kick</button>
-      <button class="btn-primary w-auto" id="playSoundShortbasshit">Shortbasshit</button>
-      <button class="btn-primary w-auto" id="playSoundSnare">Snare</button>
+    <div class="flex flex-col items-center gap-2">
+      <h2 class="text-2xl font-bold">Join a Call</h2>
+      <p>Pass the generated key into the field below, to answer a call</p>
+      <div class="flex flex-row gap-5">
+        <input class="input w-auto" id="callInput" placeholder="Enter call ID"/>
+        <button class="btn-primary" id="answerButton">Answer</button>
+      </div>
     </div>
-  </div>
 
-  <div class="flex flex-col items-center gap-2" id="hangup" style="display: none">
-    <h2>Hangup</h2>
-    <button class="btn-cancel w-auto" id="hangupButton">Hangup</button>
-  </div>
+    <div class="flex flex-col items-center gap-2" id="playSound" style="display: none">
+      <h2>Play Sound</h2>
+      <div class="flex gap-2">
+        <button class="btn-primary w-auto" id="playSoundHithat">Hithat</button>
+        <button class="btn-primary w-auto" id="playSoundBasshit">Bass hit</button>
+        <button class="btn-primary w-auto" id="playSoundCymbal">Cymbal</button>
+        <button class="btn-primary w-auto" id="playSoundKick">Kick</button>
+        <button class="btn-primary w-auto" id="playSoundShortbasshit">Shortbasshit</button>
+        <button class="btn-primary w-auto" id="playSoundSnare">Snare</button>
+      </div>
+    </div>
 
-  <button class="btn-cancel w-auto" id="exitButton">Back to the menu</button>
+    <div class="flex flex-col items-center gap-2" id="hangup" style="display: none">
+      <h2>Hangup</h2>
+      <button class="btn-cancel w-auto" id="hangupButton">Hangup</button>
+    </div>
+
+    <button class="btn-cancel w-auto" id="exitButton">Back to the menu</button>
+  </div>
 
   <audio autoplay id="audio"></audio>
   <script src="./webRTC.js" type="module"></script>
