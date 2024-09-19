@@ -3,7 +3,7 @@ const webRTCButton = document.querySelector("#webRTCButton");
 const pitchShiftButton = document.querySelector("#pitchShiftButton");
 
 mediapipeButton.addEventListener("click", () => {
-  location.href = "/src/Mediapipe.html";
+  location.href = "/src/mediapipe/Mediapipe.html";
 });
 
 webRTCButton.addEventListener("click", () => {

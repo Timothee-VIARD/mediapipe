@@ -1,3 +1,5 @@
+// File used for webRTC demo and mediapipe demo
+
 const audioContext = new AudioContext();
 const masterGainNode = audioContext.createGain();
 masterGainNode.connect(audioContext.destination);

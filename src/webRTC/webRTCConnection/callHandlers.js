@@ -1,3 +1,5 @@
+// File used for webRTC demo and mediapipe demo
+
 import {collection, doc, getDoc, onSnapshot, setDoc, updateDoc,} from "firebase/firestore";
 import {firestore} from "../config/firebaseConfig.js";
 import {pc} from "../config/webrtcConfig.js";

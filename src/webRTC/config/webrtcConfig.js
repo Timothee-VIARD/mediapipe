@@ -1,3 +1,5 @@
+// File used for webRTC demo and mediapipe demo
+
 const servers = {
     iceServers: [
         {urls: "stun:stun1.l.google.com:19302"},

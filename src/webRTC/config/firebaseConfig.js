@@ -1,3 +1,5 @@
+// File used for webRTC demo and mediapipe demo
+
 import {initializeApp} from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 

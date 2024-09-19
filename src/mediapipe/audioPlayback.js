@@ -1,4 +1,4 @@
-import {addAudioSource} from "./webRTC/audioManagement/audioContext.js";
+import {addAudioSource} from "../webRTC/audioManagement/audioContext.js";
 
 export const playSound = (audioUrl) => {
     try {

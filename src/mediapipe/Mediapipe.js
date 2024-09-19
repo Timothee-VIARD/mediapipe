@@ -59,6 +59,7 @@ let BOXES = [
     },
 ];
 
+// Preload images for each box and set the `ready` flag once the image is loaded
 BOXES.forEach((box) => {
     const img = new Image();
     img.onload = function () {

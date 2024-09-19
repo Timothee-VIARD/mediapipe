@@ -1,3 +1,5 @@
+// File used for webRTC demo and mediapipe demo
+
 import {pc, remoteStream} from "../config/webrtcConfig.js";
 import {hangupDiv, playSoundDiv, remoteAudio} from "../uiElements.js";
 
